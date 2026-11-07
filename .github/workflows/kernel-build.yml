@@ -15,8 +15,16 @@ jobs:
       - name: Check out pipeline
         uses: actions/checkout@v4
 
-      - name: Install build tools
-        run: pacman -Syu --noconfirm git sudo
+      - name: Configure build tools
+        run: |
+          cat <<'EOF' >> /etc/pacman.conf
+          [cachyos]
+          Server = https://mirror.cachyos.org/repo/x86_64/cachyos
+          EOF
+          pacman-key --init
+          pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
+          pacman-key --lsign-key F3B607488DB35A47
+          pacman -Syu --noconfirm --needed git sudo ccache
 
       - name: Configure build user
         run: |
