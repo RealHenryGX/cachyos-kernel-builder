@@ -6,6 +6,7 @@ source_dir=${1:?usage: build.sh SOURCE_DIR}
 output_dir=${2:-"$root_dir/artifacts"}
 
 mkdir -p "$output_dir/packages"
+output_dir=$(cd "$output_dir" && pwd)
 cd "$source_dir/linux-cachyos"
 
 env -u CI -u GITHUB_RUN_ID makepkg --syncdeps --noconfirm --needed

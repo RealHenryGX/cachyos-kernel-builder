@@ -6,6 +6,7 @@ output_dir=${1:-"$root_dir/artifacts"}
 source "$root_dir/config/build.env"
 
 mkdir -p "$output_dir"
+output_dir=$(cd "$output_dir" && pwd)
 work_dir=$(mktemp -d)
 trap 'rm -rf "$work_dir"' EXIT
 
