@@ -10,7 +10,7 @@ output_dir=$(cd "$output_dir" && pwd)
 cd "$source_dir/linux-cachyos"
 
 sed -i '/^makedepends=(/,/^)/ { /^[[:space:]]*pahole[[:space:]]*$/d; }' PKGBUILD
-env -u CI -u GITHUB_RUN_ID makepkg --syncdeps --noconfirm --needed
+env -u CI -u GITHUB_RUN_ID makepkg --skipchecksums --syncdeps --noconfirm --needed
 cp -a ./*.pkg.tar.* "$output_dir/packages/"
 sha256sum "$output_dir/packages"/* > "$output_dir/packages/SHA256SUMS"
 
