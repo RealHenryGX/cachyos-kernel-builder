@@ -1,7 +1,7 @@
 diff --git a/linux-cachyos/config b/linux-cachyos/config
 --- a/linux-cachyos/config
 +++ b/linux-cachyos/config
-@@ -11766,7 +11766,30 @@ CONFIG_INTEGRITY_MACHINE_KEYRING=y
+@@ -11766,8 +11766,31 @@ CONFIG_INTEGRITY_MACHINE_KEYRING=y
  # CONFIG_INTEGRITY_CA_MACHINE_KEYRING is not set
  CONFIG_LOAD_UEFI_KEYS=y
  CONFIG_INTEGRITY_AUDIT=y
@@ -33,3 +33,5 @@ diff --git a/linux-cachyos/config b/linux-cachyos/config
 +CONFIG_IMA_SECURE_AND_OR_TRUSTED_BOOT=y
 +# CONFIG_IMA_DISABLE_HTABLE is not set
  # CONFIG_EVM is not set
+ # CONFIG_DEFAULT_SECURITY_SELINUX is not set
+ # CONFIG_DEFAULT_SECURITY_SMACK is not set
