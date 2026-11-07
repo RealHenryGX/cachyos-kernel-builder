@@ -1,0 +1,26 @@
+name: Upstream validation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out pipeline
+        uses: actions/checkout@v4
+
+      - name: Validate upstream patch
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes git
+          scripts/prepare.sh artifacts
+
+      - name: Upload validation record
+        uses: actions/upload-artifact@v4
+        with:
+          name: upstream-validation
+          path: artifacts/build-manifest.txt
