@@ -23,7 +23,11 @@ jobs:
           EOF
           pacman-key --init
           pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
+          pacman-key --recv-keys E18447AC260021D31F3FF6C4C8A2A4774B8B63C4 --keyserver keyserver.ubuntu.com
+          pacman-key --recv-keys E8B9AA39F054E30E8290D492C3C4820857F654FE --keyserver keyserver.ubuntu.com
           pacman-key --lsign-key F3B607488DB35A47
+          pacman-key --lsign-key E18447AC260021D31F3FF6C4C8A2A4774B8B63C4
+          pacman-key --lsign-key E8B9AA39F054E30E8290D492C3C4820857F654FE
           pacman -Syu --noconfirm --needed git sudo ccache
 
       - name: Configure build user
