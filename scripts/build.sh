@@ -11,6 +11,7 @@ cd "$source_dir/linux-cachyos"
 
 sed -i '/^makedepends=(/,/^)/ { /^[[:space:]]*pahole[[:space:]]*$/d; }' PKGBUILD
 env -u CI -u GITHUB_RUN_ID makepkg --skipchecksums --syncdeps --noconfirm --needed
+cp -a "$source_dir/linux-cachyos/linux-cachyos/config" "$output_dir/kernel.config"
 cp -a ./*.pkg.tar.* "$output_dir/packages/"
 sha256sum "$output_dir/packages"/* > "$output_dir/packages/SHA256SUMS"
 

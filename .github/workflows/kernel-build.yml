@@ -49,4 +49,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cachyos-kernel-packages
-          path: artifacts/
+          path: |
+            artifacts/packages/
+            artifacts/build-manifest.txt
+            artifacts/kernel.config
